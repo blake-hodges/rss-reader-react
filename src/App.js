@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import Entry from './Entry';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid mt-3">
+        <div className="row">
+            <div className="col-12 text-center">
+                <h1>RSS Feed Reader</h1>
+            </div>
+        </div>
+        <div className="row justify-content-center">
+            <div className="col-lg-6  col-md-8 col-sm-10 col-12">
+                <div className="feed-wrapper">
+                    <Entry />
+                </div>
+            </div>
+        </div>
     </div>
+
   );
 }
 
