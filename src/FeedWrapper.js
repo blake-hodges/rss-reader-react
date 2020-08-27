@@ -13,7 +13,6 @@ class FeedWrapper extends Component {
         .then(res => res.text())
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
         .then(data => {
-            let posts = this.state.posts;
             let newPosts = parseTynanXML(data);
             this.setState({
                 posts: [],
@@ -24,9 +23,9 @@ class FeedWrapper extends Component {
             .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
             .then(data => {
 
-                let posts = parseSiversXML(data);
+                let newPosts = parseSiversXML(data);
                 let oldPosts = this.state.unsortedPosts;
-                let updatedPosts = oldPosts.concat(posts);
+                let updatedPosts = oldPosts.concat(newPosts);
                 this.setState({
                     posts: [],
                     unsortedPosts: updatedPosts
@@ -36,9 +35,9 @@ class FeedWrapper extends Component {
                 .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
                 .then(data => {
 
-                    let posts = parseZakasXML(data);
+                    let newPosts = parseZakasXML(data);
                     let oldPosts = this.state.unsortedPosts;
-                    let updatedPosts = oldPosts.concat(posts);
+                    let updatedPosts = oldPosts.concat(newPosts);
                     this.setState({
                         posts: [],
                         unsortedPosts: updatedPosts
@@ -50,7 +49,9 @@ class FeedWrapper extends Component {
                     })
 
                 })
-                .catch((error) => console.log(error));
+                .catch((error) => {
+                    console.log(error);
+                });
 
             })
 
@@ -60,9 +61,9 @@ class FeedWrapper extends Component {
 
     render() {
             const posts = this.state.posts.length ? (
-                this.state.posts.map((post) => {
+                this.state.posts.map((post, index) => {
                     return (
-                        <div className="feed-entry">
+                        <div className="feed-entry" key={index}>
                             <h5 className="entry-title">{post.title}</h5>
                             <span className="entry-author">{post.site}</span>
                             <p className="entry-content">{post.content}</p>
