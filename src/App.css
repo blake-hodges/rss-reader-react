@@ -4,6 +4,7 @@
 
 .feed-entry {
     border: grey 1px solid;
+    border-top: none;
     padding: 10px;
     width: 100%;
 
@@ -11,11 +12,9 @@
     text-overflow: ellipsis;
 }
 
+.feed-entry:first-child {
+    border-top: grey 1px solid;
+}
 .entry-content {
     margin-top: 10px;
-}
-
-.spinner-div {
-    /* margin: 0 auto;
-    width: 120px; */
 }

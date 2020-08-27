@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { parseTynanXML, parseSiversXML, parseZakasXML, sortByDate } from './utils.js';
+import Spinner from './Spinner'
 
 class FeedWrapper extends Component {
     state = {
@@ -70,7 +71,9 @@ class FeedWrapper extends Component {
                         </div>
                     )
                 })
-            ) : (<p>no posts yet</p>)
+            ) : (
+                <Spinner />
+            )
 
             return (
                 <div>
