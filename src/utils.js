@@ -86,3 +86,16 @@ export function parseZakasXML(data) {
     }
     return containerArray;
 }
+
+//function to sort array of blog posts by utc
+export function sortByDate(a, b) {
+    let dateA = a.utc;
+    let dateB = b.utc;
+    let comparison = 0;
+    if (dateA > dateB) {
+        comparison = 1;
+    } else if (dateB > dateA) {
+        comparison = -1;
+    }
+    return comparison;
+}
