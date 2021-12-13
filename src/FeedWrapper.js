@@ -9,7 +9,7 @@ class FeedWrapper extends Component {
     }
 
     componentDidMount(){
-        fetch("http://feeds.feedburner.com/tynan?format=xml")
+        fetch("https://feeds.feedburner.com/tynan?format=xml")
         .then(res => res.text())
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
         .then(data => {
@@ -30,7 +30,7 @@ class FeedWrapper extends Component {
                     posts: [],
                     unsortedPosts: updatedPosts
                 })
-                fetch("http://feeds.feedburner.com/nczonline?format=xml")
+                fetch("https://feeds.feedburner.com/nczonline?format=xml")
                 .then(res => res.text())
                 .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
                 .then(data => {
