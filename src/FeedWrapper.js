@@ -9,7 +9,7 @@ class FeedWrapper extends Component {
     }
 
     componentDidMount(){
-        fetch("https://cors-anywhere.herokuapp.com/http://feeds.feedburner.com/tynan?format=xml")
+        fetch("http://feeds.feedburner.com/tynan?format=xml")
         .then(res => res.text())
         .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
         .then(data => {
@@ -18,7 +18,7 @@ class FeedWrapper extends Component {
                 posts: [],
                 unsortedPosts: newPosts
             })
-            fetch("https://cors-anywhere.herokuapp.com/https://sivers.org/en.atom")
+            fetch("https://sivers.org/en.atom")
             .then(res => res.text())
             .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
             .then(data => {
@@ -30,7 +30,7 @@ class FeedWrapper extends Component {
                     posts: [],
                     unsortedPosts: updatedPosts
                 })
-                fetch("https://cors-anywhere.herokuapp.com/http://feeds.feedburner.com/nczonline?format=xml")
+                fetch("http://feeds.feedburner.com/nczonline?format=xml")
                 .then(res => res.text())
                 .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
                 .then(data => {
